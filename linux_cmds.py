@@ -7,12 +7,23 @@ def show_linux_menu():
     Press 3 to see RAM usage
     """)
     linux_command=input()
-    linux_performer(linux_command)
+    if int(linux_command)==1:
+        date_show()
+    elif int(linux_command)==2:
+        show_calendar()
+    elif int(linux_command)==3:
+        ram_usage()
+
 
 def clear_screen_linux():
     os.system("clear")
     show_linux_menu()
 
-def linux_performer(linux_command):
-    if linux_command=='1':
-        os.system('date')
+def date_show():
+    os.system('date')
+
+def ram_usage():
+    os.system('free -m')
+
+def show_calendar():
+    os.system('cal')

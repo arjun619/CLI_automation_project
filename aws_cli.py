@@ -2,17 +2,17 @@ import os
 
 def load_cmds_aws():
     print("""
-    Press 1 to login using access key
-    Press 2 to setup EC2 instance
-    Press 3 to check current EC2 instances
-    press 0 to exit AWS menu
-    """)
+        Press 1 to login using access key
+        Press 2 to setup EC2 instance
+        Press 3 to check current EC2 instances
+        press 0 to exit AWS menu
+        """)
     aws_a=input()
     if int(aws_a)==2:
         create_ec2()
     if int(aws_a)==3:
         check_running_instances()
-    if int(aws_a)==0
+    
 
 
 def clear_screen_aws():
