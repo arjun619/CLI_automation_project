@@ -13,6 +13,7 @@ def initial_interface():
          Press 2 for Hadoop Setup
          Press 3 for partioning
          Press 4 for AWS CLI configuration
+         Press 5 to use docker
          Press 0 to exit
          """)
     a=input()
@@ -23,6 +24,8 @@ def initial_interface():
             partitioner.clear_screen_partition()
         if a=='4':
             aws_cli.clear_screen_aws()
+        if a=='5':
+            docker_commands.clear_screen_docker()
         a=input()
 initial_interface()
 print("\n\n\nthanks for visiting  : )")
