@@ -5,6 +5,8 @@ def load_cmds_aws():
         Press 1 to login using access key
         Press 2 to setup EC2 instance
         Press 3 to check current EC2 instances
+        Press 4 to set up CloudFront distribution
+        Press 5 to create an S3 bucket
         press 0 to exit AWS menu
         """)
     aws_a=input()
@@ -12,6 +14,10 @@ def load_cmds_aws():
         create_ec2()
     if int(aws_a)==3:
         check_running_instances()
+    if int(aws_a)==4:
+        create_cloudfront_distribution()
+    if int(aws_a)==5:
+        create_S3_bucket()
     
 
 
@@ -49,6 +55,13 @@ def create_ec2():
 
 def check_running_instances():
     os.system("aws ec2 describe-instances")
+
+def create_cloudfront_distribution():
+    pass
+
+def create_S3_bucket():
+    a=os.system("aws s3api create-bucket")
+    print(a)
     
     
 

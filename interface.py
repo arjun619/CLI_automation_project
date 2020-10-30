@@ -1,7 +1,7 @@
 import linux_cmds
 import aws_cli
 import partitioner
-
+import docker_commands
 
 print("""          ________________________
          |                       |
