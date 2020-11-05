@@ -1,10 +1,16 @@
-import os
+ximport os
 
 def show_linux_menu():
     print("""
     Press 1 to check date
     Press 2 to see calendar
     Press 3 to see RAM usage
+    Press 4 to see the background running process
+    Press 5 to check the ip address
+    Press 6 to check from which we login
+    Press 7 to start the firewall
+    Press 8 to stop the firewall
+    Press 9 to see about the CPU
     """)
     linux_command=input()
     if int(linux_command)==1:
@@ -13,7 +19,18 @@ def show_linux_menu():
         show_calendar()
     elif int(linux_command)==3:
         ram_usage()
-
+    elif int(linux_command)==4:
+        running_process()
+    elif int(linux_command)==5:
+        ip_address()
+    elif int(linux_command)==6:
+        who_am_i()
+    elif int(linux_command)==7:
+        firewall_start()
+    elif int(linux_command)==8:
+        firewall_stop()
+    elif int(linux_command)==9:
+        lscpu()
 
 def clear_screen_linux():
     os.system("clear")
@@ -27,3 +44,21 @@ def ram_usage():
 
 def show_calendar():
     os.system('cal')
+    
+def running_process():
+    os.system('jobs')
+
+def ip_address():
+    os.system('ifconfig enp0s3')
+    
+def who_am_i():
+    os.system('whoami')
+    
+def firewall_start():
+    os.system('systemctl start firewalld')
+    
+def firewall_stop():
+    os.system('systemctl stop firewalld')
+    
+def lscpu():
+    os.system('lscpu')
