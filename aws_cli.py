@@ -1,40 +1,44 @@
 import os
 
 def load_cmds_aws():
-    print("""
-        Press 1 to login using access key
-        Press 2 to setup EC2 instance
-        Press 3 to check current EC2 instances
-        Press 4 to set up CloudFront distribution
-        Press 5 to create an S3 bucket
+    aws_a=22
+    while int(aws_a)!=0:
+        print("""
+        Press 1 to setup EC2 instance
+        Press 2 to check current EC2 instances
+        Press 3 to set up CloudFront distribution
+        Press 4 to create an S3 bucket
         press 0 to exit AWS menu
         """)
-    aws_a=input()
-    if int(aws_a)==2:
-        create_ec2()
-    if int(aws_a)==3:
-        check_running_instances()
-    if int(aws_a)==4:
-        create_cloudfront_distribution()
-    if int(aws_a)==5:
-        create_S3_bucket()
-    
-
+        aws_a=input()
+        if int(aws_a)==1:
+            create_ec2()
+        elif int(aws_a)==2:
+            check_running_instances()
+        elif int(aws_a)==3:
+            pass
+        elif int(aws_a)==4:
+            create_S3_bucket()
+        elif int(aws_a)==0:
+            break
+        else:
+            print("Incorrect input please try again")
 
 def clear_screen_aws():
     os.system("clear")
     load_cmds_aws()
 
 def create_ec2():
+    print("\n")
     ami_type=["ami-0e306788ff2473ccb","ami-052c08d70def0ac62","ami-0b2f6494ff0b07a0e","ami-0cda377a1b884a1bc"]
     machine_size=['t2.nano','t2.micro','t2.small','t2.medium']
     preference=dict()
 
     print("""select the AMI you want to use
-    1.ami-0e306788ff2473ccb           Amazon Linux 2
-    2.ami-052c08d70def0ac62           RHEL 8
-    3.ami-0b2f6494ff0b07a0e           Windows Server (GUI)
-    4.ami-0cda377a1b884a1bc           Ubuntu 20.04
+    1. Amazon Linux 2
+    2. RHEL 8
+    3. Windows Server (GUI)
+    4. Ubuntu 20.04
             """)
     machine_type=input()
     preference['machine_type']=ami_type[int(machine_type)-1]
@@ -56,12 +60,32 @@ def create_ec2():
 def check_running_instances():
     os.system("aws ec2 describe-instances")
 
-def create_cloudfront_distribution():
-    pass
+"""def create_cloudfront_distribution():
+    print(
+    Creates a new web distribution. You create a CloudFront distribution
+to tell CloudFront where you want content to be delivered from, and
+the details about how to track and manage content delivery. Send a
+"POST" request to the "/*CloudFront API version* /distribution"
+/"distribution ID" resource.\n\n\n
+    )
+    os.system("aws cloudfront create-distribution --origin-domain-name awsexamplebucket.s3.amazonaws.com \")"""
 
 def create_S3_bucket():
-    a=os.system("aws s3api create-bucket")
-    print(a)
+    region_actual=['ap-south-1','us-east-1','us-east-1']
+    bucket_name=input("Enter the name of the bucket ")
+    r_count=input("""
+        Select the region where you want to create the bucket.
+        1. Mumbai
+        2. North Virginia
+        3. U.S East
+    """)
+    if int(r_count) not in range(1,4):
+        print("Invalid Attempt")
+    else:
+        os.system(f"aws s3api create-bucket --bucket {bucket_name} --region {region_actual[int(r_count)]}")
+
+
+    
     
     
 
