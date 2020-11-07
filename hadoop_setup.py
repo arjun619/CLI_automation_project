@@ -61,7 +61,6 @@ def setup_core_file():
             f.write(f"<value>hdfs://{ip_host}:9001</value>")
             f.write("</property>\n")
             f.write("</configuration>\n")
-        print("File Updated")
 
 def setup_hdfs_file():
     val=input("Do you wanna configure as namenode or datanode . Press 1 for namenode or 2 for datanode\n")
