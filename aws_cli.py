@@ -60,15 +60,16 @@ def create_ec2():
 def check_running_instances():
     os.system("aws ec2 describe-instances")
 
-"""def create_cloudfront_distribution():
-    print(
-    Creates a new web distribution. You create a CloudFront distribution
-to tell CloudFront where you want content to be delivered from, and
-the details about how to track and manage content delivery. Send a
-"POST" request to the "/*CloudFront API version* /distribution"
-/"distribution ID" resource.\n\n\n
-    )
-    os.system("aws cloudfront create-distribution --origin-domain-name awsexamplebucket.s3.amazonaws.com \")"""
+def create_cloudfront_distribution():
+    print("""
+        Creates a new web distribution. You create a CloudFront distribution
+        to tell CloudFront where you want content to be delivered from, and
+        the details about how to track and manage content delivery. Send a
+        "POST" request to the "/*CloudFront API version* /distribution"
+        /"distribution ID" resource.\n\n\n"""
+        )
+    origin_name=input("What is the origin name\n")
+    os.system(f"aws cloudfront create-distribution --origin-domain-name {origin_name}")
 
 def create_S3_bucket():
     region_actual=['ap-south-1','us-east-1','us-east-1']
