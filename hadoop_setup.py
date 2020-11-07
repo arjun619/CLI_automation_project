@@ -1,30 +1,40 @@
 import os
 
 def load_cmds_hadoop():
-    print("""What do you want to do
+    
+    hadoop_n=12
+    while int(hadoop_n)!=6:
+        print("""What do you want to do
     1. Setup the HDFS file
     2. Setup the core-site file
     3. Start datanode
     4. Start namenode
     5. Check DFS admin report
+    0. Exit
     
     """)
-    hadoop_n=input()
-    if int(hadoop_n)==1:
-        setup_hdfs_file()
-    if int(hadoop_n)==2:
-        setup_core_file()
-    if int(hadoop_n)==3:
-        start_datanode()
-    if int(hadoop_n)==4:
-        start_namenode()
+        hadoop_n=input()
+        if int(hadoop_n)==1:
+            setup_hdfs_file()
+        elif int(hadoop_n)==2:
+            setup_core_file()
+        elif int(hadoop_n)==3:
+            start_datanode()
+        elif int(hadoop_n)==4:
+            start_namenode()
+        elif int(hadoop_n)==0:
+            break
+        else:
+            print("Incorrect input please try again")
 
 def start_namenode():
     os.system("hadoop namenode format")
     os.system("hadoop-daemon.sh start namenode")
 
 def start_datanode():
-    pass
+    os.system("hadoop datanode format")
+    os.system("hadoop-daemon.sh start datanode")
+
 def setup_core_file():
     val=input("Do you wanna configure as namenode or datanode . Press 1 for namenode or 2 for datanode\n")
     if int(val)==1:
@@ -38,6 +48,20 @@ def setup_core_file():
             f.write("<value>hdfs://0.0.0.0:9001</value>\n")
             f.write("</property>\n")
             f.write("</configuration>\n")
+        print("File Updated")
+    if int(val)==2:
+        ip_host=input("Enter the ip of the namenode ")
+        with open("/etc/hadoop/core-site.xml",'w+') as f:
+            f.write("<?xml version='1.0'?>\n")
+            f.write("<?xml-stylesheet type='text/xsl' href='configuration.xsl'?>\n")
+            f.write("<!-- Put site-specific property overrides in this file. -->\n\n")
+            f.write("<configuration>\n")
+            f.write("<property>\n")
+            f.write("<name>fs.default.name</name>\n")
+            f.write(f"<value>hdfs://{ip_host}:9001</value>")
+            f.write("</property>\n")
+            f.write("</configuration>\n")
+        print("File Updated")
 
 def setup_hdfs_file():
     val=input("Do you wanna configure as namenode or datanode . Press 1 for namenode or 2 for datanode\n")
@@ -53,6 +77,21 @@ def setup_hdfs_file():
             f.write("</property>\n")
             f.write("</configuration>\n")
         os.system("mkdir /nn")
+        print("File Updated")
+    
+    if int(val)==2:
+        with open("/etc/hadoop/hdfs-site.xml",'w+') as f:
+            f.write("<?xml version='1.0'?>\n")
+            f.write("<?xml-stylesheet type='text/xsl' href='configuration.xsl'?>\n")
+            f.write("<!-- Put site-specific property overrides in this file. -->\n\n")
+            f.write("<configuration>\n")
+            f.write("<property>\n")
+            f.write("<name>dfs.data.dir</name>\n")
+            f.write("<value>/dn1</value>\n")
+            f.write("</property>")
+            f.write("</configuration>\n")
+        os.system("mkdir /dn1")
+        print("Print Updated")
         #os.system("hadoop namenode format")
 
 
