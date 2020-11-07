@@ -16,7 +16,7 @@ def load_cmds_aws():
         elif int(aws_a)==2:
             check_running_instances()
         elif int(aws_a)==3:
-            pass
+            create_cloudfront_distribution()
         elif int(aws_a)==4:
             create_S3_bucket()
         elif int(aws_a)==0:

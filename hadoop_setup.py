@@ -61,6 +61,7 @@ def setup_core_file():
             f.write(f"<value>hdfs://{ip_host}:9001</value>")
             f.write("</property>\n")
             f.write("</configuration>\n")
+        print("File updated")
 
 def setup_hdfs_file():
     val=input("Do you wanna configure as namenode or datanode . Press 1 for namenode or 2 for datanode\n")
@@ -76,7 +77,7 @@ def setup_hdfs_file():
             f.write("</property>\n")
             f.write("</configuration>\n")
         os.system("mkdir /nn")
-        print("File Updated")
+        print("File Updated namenode at /nn")
     
     if int(val)==2:
         with open("/etc/hadoop/hdfs-site.xml",'w+') as f:
@@ -90,7 +91,7 @@ def setup_hdfs_file():
             f.write("</property>")
             f.write("</configuration>\n")
         os.system("mkdir /dn1")
-        print("Print Updated")
+        print("File updated datanode at /dn1")
         #os.system("hadoop namenode format")
 
 
