@@ -3,6 +3,10 @@ import aws_cli
 import partitioner
 import docker_commands
 import hadoop_setup
+import os
+import lvm_script
+import webserver_setup
+os.system('tput setaf 1')
 print("""          ________________________
          |                       |
          |One-For-All Interface  |
@@ -16,6 +20,8 @@ def initial_interface():
         Press 3 for AWS CLI configuration
         Press 4 to use docker
         Press 5 to perform partition
+        Press 6 to create LVM partition
+        Press 7 to setup httpd server
         Press 0 to exit
         """)
         a=input()
@@ -29,6 +35,10 @@ def initial_interface():
             docker_commands.clear_screen_docker()
         elif a=='5':
             partitioner.clear_screen_partition()
+        elif a=='6':
+            lvm_script.clear_screen_lvm()
+        elif a=='7':
+            webserver_setup.clear_screen_server()
         else:
             print("Incorrect Choice\n")         
 initial_interface()

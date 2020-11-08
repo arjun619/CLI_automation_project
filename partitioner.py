@@ -3,7 +3,12 @@ import os
 def load_partition():
 	while True:
 		os.system('clear')
+		os.system('tput setaf 5')
 		print('''
+		#################PARTITIONER TOOL#################
+        
+
+		
 			What action you want to perform!!
 			1. create a partition
 			2. format a partition

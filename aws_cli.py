@@ -3,7 +3,9 @@ import os
 def load_cmds_aws():
     aws_a=22
     while int(aws_a)!=0:
+        os.system('tput setaf 0')
         print("""
+                ################AWS EASY CLI#################
         Press 1 to setup EC2 instance
         Press 2 to check current EC2 instances
         Press 3 to set up CloudFront distribution

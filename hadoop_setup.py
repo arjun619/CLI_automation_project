@@ -4,7 +4,12 @@ def load_cmds_hadoop():
     
     hadoop_n=12
     while int(hadoop_n)!=6:
-        print("""What do you want to do
+        os.system('tput setaf 2')
+        print("""#################HADOOP ENVIRONMENT#################
+        
+
+        
+        What do you want to do
     1. Setup the HDFS file
     2. Setup the core-site file
     3. Start datanode

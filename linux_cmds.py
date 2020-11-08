@@ -1,71 +1,118 @@
 import os
+val=0
+def show_linux_command():
+	val =input("""
+		1. To run command locally
+		2. To run command remotely we use ssh protocol
+		Enter your choice here: """)
+	req = dict()
+	if int(val) == 2:
+		req['ip_of_remote'] = input("Enter the ip of remote system : ")
+	while True:
+		os.system('clear')
+		print(""" 		
+			Press 0 to check date
+			Press 1 to see calender
+			Press 2 to see Ram usage
+			Press 3 to see the background running process
+			Press 4 to check the ip address
+			Press 5 to check from which we login
+			Press 6 to start the firewall
+			Press 7 to stop the firewall
+			Press 8 to see about the CPU
+			Press 9 to return to main menu
+			""")
 
-def show_linux_menu():
-    linux_command=22
-    while linux_command!=0:
-        print("""
-    Press 1 to check date
-    Press 2 to see calendar
-    Press 3 to see RAM usage
-    Press 4 to see the background running process
-    Press 5 to check the ip address
-    Press 6 to check from which we login
-    Press 7 to start the firewall
-    Press 8 to stop the firewall
-    Press 9 to see about the CPU
-    Press 0 to exit
-    """)
-        linux_command=input()
-        if int(linux_command)==1:
-            date_show()
-        elif int(linux_command)==2:
-            show_calendar()
-        elif int(linux_command)==3:
-            ram_usage()
-        elif int(linux_command)==4:
-            running_process()
-        elif int(linux_command)==5:
-            ip_address()
-        elif int(linux_command)==6:
-            who_am_i()
-        elif int(linux_command)==7:
-            firewall_start()
-        elif int(linux_command)==8:
-            firewall_stop()
-        elif int(linux_command)==9:
-            lscpu()
-        elif int(linux_command)==0:
-            break
-        else:
-            print("Incorrect input please try again")
+		linux_command = int(input("Enter your choice here: "))
 
+		if linux_command == 0:
+			date_show(val,req)
+		elif linux_command == 1:
+			show_calender(val,req)
+		elif linux_command == 2:
+			ram_usage(val,req)
+		elif linux_command == 3:
+			running_process(val,req)
+		elif linux_command == 4:
+			ip_address(val,req)
+		elif linux_command == 5:
+			who_am_i(val,req)
+		elif linux_command == 6:
+			firewall_start(val,req)
+		elif linux_command == 7:
+			firewall_stop(val,req)
+		elif linux_command == 8:
+			lscpu(val,req)
+		elif linux_command == 9:
+			break
+		else:
+			print("Incorrect input please try again")
+			input("Enter to continue")
 def clear_screen_linux():
     os.system("clear")
-    show_linux_menu()
+    show_linux_command()
 
-def date_show():
-    os.system('date')
+def date_show(val,req):
+	if int(val) == 2:
+		os.system('ssh root@{} date'.format(req['ip_of_remote']))
+	else:
+		os.system('date')
+	input("Enter to continue")
 
-def ram_usage():
-    os.system('free -m')
+def show_calender(val,req):
+	if int(val) == 2:
+		os.system('ssh {} cal'.format(req['ip_of_remote']))
+	else:
+		os.system('cal')
+	input("Enter to continue")
 
-def show_calendar():
-    os.system('cal')
+def ram_usage(val,req):
+	if int(val) == 2:
+		os.system('ssh {} free -m'.format(req['ip_of_remote']))
+	else:
+		os.system('free -m')
+	input("Enter to continue")
     
-def running_process():
-    os.system('jobs')
+def running_process(val,req):
+	if int(val) == 2:
+		os.system('ssh {} jobs'.format(req['ip_of_remote']))
+	else:
+		os.system('jobs')
+	input("Enter to continue")
 
-def ip_address():
-    os.system('ifconfig enp0s3')
+def ip_address(val,req):
+	if int(val) == 2:
+		os.system('ssh {} ifconfig '.format(req['ip_of_remote']))
+	else:
+		os.system('ifconfig ')
+	input("Enter to continue")
     
-def who_am_i():
-    os.system('whoami')
+def who_am_i(val,req):
+	if int(val) == 2:
+		os.system('ssh {} whoami'.format(req['ip_of_remote']))
+	else:
+		os.system('whoami')
+	input("Enter to continue")
     
-def firewall_start():
-    os.system('systemctl start firewalld')
+def firewall_start(val,req):
+	if int(val) == 2:
+		os.system('ssh {} systemctl start firewalld'.format(req['ip_of_remote']))
+	else:
+		os.system('systemctl start firewalld')
+	input("Enter to continue")
     
-def firewall_stop():
-    os.system('systemctl stop firewalld')
+def firewall_stop(val,req):
+	if int(val) == 2:
+		os.system('ssh {} systemctl stop firewalld'.format(req['ip_of_remote']))
+	else:
+		os.system('systemctl stop firewalld')
+	input("Enter to continue")
     
-def lscpu():
-    os.system('lscpu')
+def lscpu(val,req):
+	if int(val) == 2:
+		os.system('ssh {} lscpu'.format(req['ip_of_remote']))
+	else:
+		os.system('lscpu')
+	input("Enter to continue")
+
+
