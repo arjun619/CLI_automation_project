@@ -6,10 +6,12 @@ import hadoop_setup
 import os
 import lvm_script
 import webserver_setup
+import yum_file
+
 os.system('tput setaf 1')
 print("""          ________________________
          |                       |
-         |One-For-All Interface  |
+         |ALL-FOR-ONE Interface  |
          |_______________________|                   """)
 
 def initial_interface():
@@ -22,6 +24,7 @@ def initial_interface():
         Press 5 to perform partition
         Press 6 to create LVM partition
         Press 7 to setup httpd server
+        Press 8 to configure
         Press 0 to exit
         """)
         a=input()
@@ -39,6 +42,8 @@ def initial_interface():
             lvm_script.clear_screen_lvm()
         elif a=='7':
             webserver_setup.clear_screen_server()
+        elif a=='8':
+            yum_file.clear_screen_yum()
         else:
             print("Incorrect Choice\n")         
 initial_interface()

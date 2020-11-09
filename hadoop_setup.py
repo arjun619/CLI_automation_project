@@ -15,6 +15,7 @@ def load_cmds_hadoop():
     3. Start datanode
     4. Start namenode
     5. Check DFS admin report
+    6. Create folder using client
     0. Exit
     
     """)
@@ -98,6 +99,17 @@ def setup_hdfs_file():
         os.system("mkdir /dn1")
         print("File updated datanode at /dn1")
         #os.system("hadoop namenode format")
+def client_hdfs_datanode():
+	answer = input('''For configuring we have to create a folder
+				1. folder already created in this we will delete the existing folder and create new folder
+				2. to create a new folder
+				Enter here: ''')
+	dir_name = input("Give the name of the folder want to create: ")
+	if int(answer) == 2:
+		os.system("mkdir /{}".format(dir_name))
+	elif int(answer)==1:
+		os.system("rm -rf /{}".format(dir_name))
+		os.system("mkdir /{}".format(dir_name))
 
 
 def clear_screen_hadoop():
