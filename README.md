@@ -21,7 +21,13 @@ Before using AWS the AWS CLI software needs to be installed on the system. Follo
 
 ### Docker
 
-Before using the docker option in the menu the docker needs to be installed in the system. If the software is not present in the system then first use the yum option from the menu to configure docker and yum repositories for it
+Before using the docker option in the menu the docker needs to be installed in the system. If the software is not present in the system then first use the yum option from the menu to configure docker and yum repositories for it.
+
+### Hadoop
+
+Hadoop uses java in the backend and hence for using hadoop the jdk and hadoop software must be present in the system.
+JDK (https://www.oracle.com/in/java/technologies/javase-jdk15-downloads.html)  
+Hadoop (https://hadoop.apache.org/releases.html)  
 
 
 
