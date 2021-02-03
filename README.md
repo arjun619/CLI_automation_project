@@ -10,7 +10,7 @@ This linux based command line interface provides multiple technology integration
 
 ## Dependencies
 
-The program is designed on centos 8 system. So it works best on centos environment. However most of the functionalities are not restricted to the operating system.
+The program is designed on centos 8 system. So it works best on centos environment. However some of the functionalities are not restricted to the operating system like AWS and docker. `
 
 ### AWS
 
