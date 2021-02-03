@@ -8,14 +8,14 @@ This linux based command line interface provides multiple technology integration
   * Performing LVM partitions
   * Linux
 
-##Dependencies
+## Dependencies
 
 The program is designed on centos 8 system. So it works best on centos environment. However most of the functionalities are not restricted to the operating system.
 
-###AWS
+### AWS
 
 Before using AWS the AWS CLI software needs to be installed on the system. Follow the steps to install AWS CLI
-	*curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-	unzip awscliv2.zip
-	sudo ./aws/install
+	* *curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"*
+	* *unzip awscliv2.zip*
+	* *sudo ./aws/install*
 
