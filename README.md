@@ -15,7 +15,7 @@ The program is designed on centos 8 system. So it works best on centos environme
 ### AWS
 
 Before using AWS the AWS CLI software needs to be installed on the system. Follow the steps to install AWS CLI    
-	* *curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"*   
-	* *unzip awscliv2.zip*    
-	* *sudo ./aws/install*    
+* *curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"*   
+* *unzip awscliv2.zip*    
+* *sudo ./aws/install*    
 
