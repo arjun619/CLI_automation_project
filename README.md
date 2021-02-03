@@ -19,3 +19,11 @@ Before using AWS the AWS CLI software needs to be installed on the system. Follo
 * *unzip awscliv2.zip*    
 * *sudo ./aws/install*    
 
+### Docker
+
+Before using the docker option in the menu the docker needs to be installed in the system   
+(https://docs.docker.com/engine/install/)
+
+
+
+
