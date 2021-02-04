@@ -29,6 +29,7 @@ Hadoop uses java in the backend and hence for using hadoop the jdk and hadoop so
 JDK (https://www.oracle.com/in/java/technologies/javase-jdk15-downloads.html)  
 Hadoop (https://hadoop.apache.org/releases.html)  
 
+next dependencies
 
 
 
