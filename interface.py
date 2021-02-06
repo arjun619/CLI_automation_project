@@ -17,10 +17,12 @@ print("""          ________________________
          |ALL-FOR-ONE Interface  |
          |_______________________|                   """)
 
+speak_functions.speaker("Welcome to the Multi Utility tool. I can perform multiple tasks with a click of a button")
 def initial_interface():
     a=12
-    speak_functions.speaker("Welcome to the interface")
     while a!='0':
+        
+        speak_functions.speaker("What to do?")
         print("""        Press 1 for performing Linux Commands
         Press 2 for Hadoop Setup
         Press 3 for AWS CLI configuration
@@ -32,6 +34,7 @@ def initial_interface():
         Press 0 to exit
         """)
         a=input()
+
         if a=='1':
             linux_cmds.clear_screen_linux()
         elif a=='2':
