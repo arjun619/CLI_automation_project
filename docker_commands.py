@@ -2,7 +2,7 @@
 import linux_cmds
 import os
 import subprocess
-
+#import interface
 def load_docker_cmds():
     docker_c=111
     os.system('tput setaf 3')
@@ -41,7 +41,6 @@ def load_docker_cmds():
             stop_service()
         if int(docker_c) == 0:
             print('docker is now exitting .. ..  ..')
-     
         #interface.initial_interface()
   
 def clear_screen_docker():
