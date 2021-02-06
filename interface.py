@@ -1,12 +1,15 @@
 import linux_cmds
 import aws_cli
+import hadoop_setup
 import partitioner
 import docker_commands
-import hadoop_setup
+from docker_commands import clear_screen_docker
 import os
 import lvm_script
 import webserver_setup
 import yum_file
+import speak_functions
+
 
 os.system('tput setaf 1')
 print("""          ________________________
@@ -16,6 +19,7 @@ print("""          ________________________
 
 def initial_interface():
     a=12
+    speak_functions.speaker("Welcome to the interface")
     while a!='0':
         print("""        Press 1 for performing Linux Commands
         Press 2 for Hadoop Setup
